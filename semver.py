@@ -10,6 +10,9 @@ class SemanticVersion:
     def __str__(self):
         return f'{self.major}.{self.minor}.{self.patch}'
 
+    def patch_version_up(self):
+        return SemanticVersion(self.major, self.minor, self.patch + 1)
+
 
 def main():
     # kadaiD-1
@@ -19,6 +22,10 @@ def main():
 
     # kadaiD-2
     print('3.7.0' == str(py370))
+
+    # kadaiD-3
+    py371 = py370.patch_version_up()
+    print(SemanticVersion(3, 7, 1) == py371)
 
 
 if __name__ == '__main__':
