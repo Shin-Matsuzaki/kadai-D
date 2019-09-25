@@ -13,6 +13,12 @@ class SemanticVersion:
     def patch_version_up(self):
         return SemanticVersion(self.major, self.minor, self.patch + 1)
 
+    def minor_version_up(self):
+        return SemanticVersion(self.major, self.minor + 1, 0)
+
+    def major_version_up(self):
+        return SemanticVersion(self.major + 1, 0, 0)
+
 
 def main():
     # kadaiD-1
@@ -26,6 +32,14 @@ def main():
     # kadaiD-3
     py371 = py370.patch_version_up()
     print(SemanticVersion(3, 7, 1) == py371)
+
+    # kadaiD-4
+    py380 = py370.minor_version_up()
+    print(SemanticVersion(3, 8, 0) == py380)
+
+    # kadaiD-5
+    py400 = py370.major_version_up()
+    print(SemanticVersion(4, 0, 0) == py400)
 
 
 if __name__ == '__main__':
